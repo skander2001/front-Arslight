@@ -40,33 +40,41 @@
               <!-- Form START -->
 
 
-              <div class="mt-4 text-center">
-                <a routerLink="/auth-enseignant" class="btn btn-outline-primary mx-1">Enseignant</a>
-
-                <a routerLink="/auth-parent" class="btn btn-outline-primary mx-1 active">Parent</a>
-                <a routerLink="/auth-orthophoniste" class="btn btn-outline-primary mx-1">Orthophoniste</a>
-
+              <div [formGroup]="addUserForm">
+                <label class="form-label">Role <span class="text-danger">*</span></label>
+                <div class="mt-2" formGroupName="role">
+                  <button class="btn btn-outline-primary mx-1" type="button" (click)="toggleActive('Enseignant')" [class.active]="activeButton === 'Enseignant'">Enseignant</button>
+                  <button class="btn btn-outline-primary mx-1" type="button" (click)="toggleActive('Parent')" [class.active]="activeButton === 'Parent'">Parent</button>
+                  <button class="btn btn-outline-primary mx-1" type="button" (click)="toggleActive('Orthophoniste')" [class.active]="activeButton === 'Orthophoniste'">Orthophoniste</button>
+                </div>
+                <!-- Hidden input to store the selected role -->
+                <input type="hidden" formControlName="value" [value]="activeButton">
               </div>
 
               <br>
 
-              <form class="row g-3 position-relative">
+              <form
+                [formGroup]="addUserForm"
+                (submit)="onSubmit()"
+                class="row g-3 position-relative"
+              >
+
                 <!-- First name -->
                 <div class="col-md-6 ">
-                  <label class="form-label ">Prenom <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="firstName" placeholder="Prénom">
+                  <label class="form-label ">Username <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="firstName" placeholder="Prénom" formControlName="username">
                 </div>
 
                 <!-- Last name -->
                 <div class="col-md-6 ">
                   <label class="form-label">Nom <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="lastName" placeholder="Nom">
+                  <input type="text" class="form-control" id="lastName" placeholder="Nom" >
                 </div>
 
                 <!-- Email -->
                 <div class="col-md-6 ">
                   <label class="form-label ">Email <span class="text-danger">*</span></label>
-                  <input type="email" class="form-control" id="email" placeholder="Email">
+                  <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email">
                 </div>
 
                 <!-- Phone number -->
@@ -111,14 +119,14 @@
                 <div class="col-md-6 ">
                   <label class="form-label">Mot de pass <span class="text-danger">*</span></label>
 
-                  <input type="password" class="form-control" placeholder="*********" id="inputPassword5">
+                  <input type="password" class="form-control" placeholder="*********" id="inputPassword5" formControlName="password">
                 </div>
 
                 <!-- confirmer mdp -->
                 <div class="col-md-6 ">
                   <label for="inputPassword6" class="form-label">Confirmer le mot de passe *</label>
 
-                  <input type="password" class="form-control" placeholder="*********" id="inputPassword6">
+                  <input type="password" class="form-control" placeholder="*********" id="inputPassword6" >
                 </div>
 
 
@@ -126,7 +134,7 @@
                 <!-- Bouton -->
                 <div class="align-items-center mt-4">
                   <div class="d-grid">
-                    <button class="btn btn-primary mb-0" type="button">S'inscrire</button>
+                    <button class="btn btn-primary mb-0" type="submit">S'inscrire</button>
                   </div>
                 </div>
               </form>
@@ -152,7 +160,7 @@
 
               <!-- Sign up link -->
               <div class="mt-4 text-center">
-                <span>Vous avez deja un compte?<a href="sign-in.html"> Cliquez ici</a></span>
+                <span>Vous avez deja un compte?<a routerLink="/login"> Cliquez ici</a></span>
               </div>
             </div>
           </div>

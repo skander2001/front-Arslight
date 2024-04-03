@@ -23,7 +23,7 @@ export class AuthService {
       }));
   }
   createUser(data: any) {
-    return this.http.post(`${this.API_URL}/signup/`, data)
+    return this.http.post(`${this.API_URL}/register/`, data)
       .pipe(catchError((err) => {
         console.log(err);
         return throwError(err);
