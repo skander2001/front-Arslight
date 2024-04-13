@@ -8,6 +8,9 @@
         <!-- left -->
         <div class="col-12 col-lg-6 d-md-flex align-items-center justify-content-center bg-primary bg-opacity-10 vh-lg-100">
           <div class="p-3 p-lg-5">
+            <div class="navbar-nav d-none d-lg-inline-block">
+              <a routerLink=""><button class="btn btn-secondary mb-0"><i class="bi bi-house"></i></button></a>
+            </div>
             <!-- Title -->
             <div class="text-center">
               <h2 class="fw-bold">Bienvenue !</h2>
@@ -59,16 +62,10 @@
                 class="row g-3 position-relative"
               >
 
-                <!-- First name -->
+                <!-- Username -->
                 <div class="col-md-6 ">
-                  <label class="form-label ">Username <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="firstName" placeholder="Prénom" formControlName="username">
-                </div>
-
-                <!-- Last name -->
-                <div class="col-md-6 ">
-                  <label class="form-label">Nom <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="lastName" placeholder="Nom" >
+                  <label class="form-label">Username <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="username" placeholder="Username" formControlName="username" >
                 </div>
 
                 <!-- Email -->
@@ -77,56 +74,91 @@
                   <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email">
                 </div>
 
+
+                <!-- First name -->
+                <div class="col-md-6 ">
+                  <label class="form-label ">Prénom <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="firstName" placeholder="Prénom" formControlName="first_name">
+                </div>
+
+
+                <!-- Last name -->
+                <div class="col-md-6 ">
+                  <label class="form-label">Nom <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="lastName" placeholder="Nom" formControlName="last_name" >
+                </div>
+
+
+                <!-- child name -->
+                <div class="col-md-6 ">
+                  <div *ngIf="activeButton === 'Parent'">
+                  <label class="form-label">Prénom de l'enfant <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="EnfantFirstName" placeholder="Prénom de votre enfant" formControlName="cfn">
+                  </div>
+                </div>
+
+                <!-- child lastname -->
+                <div class="col-md-6 ">
+                  <div *ngIf="activeButton === 'Parent'">
+                  <label class="form-label">Nom de l'enfant <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="EnfantLastName" placeholder="Nom de votre enfant" formControlName="cln">
+                  </div>
+                </div>
+
                 <!-- Phone number -->
                 <div class="col-md-6 ">
-                  <label class="form-label ">Numéro Telephone<span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="phoneNumber" placeholder="Numéro ">
-                </div>
-
-                <!-- enfant name -->
-                <div class="col-md-6 ">
-                  <label class="form-label">Nom de l'enfant <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="EnfantName" placeholder="Nom de votre enfant">
-                </div>
-
-                <!-- age enfant -->
-                <div class="col-md-6 ">
-                  <label class="form-label">Age de l'enfant <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="ageEnfant" placeholder="Age de votre Enfant">
+                  <label class="form-label ">Numéro Telephone</label>
+                  <input type="text" class="form-control" id="phoneNumber" placeholder="Numéro" formControlName="tel">
                 </div>
 
                 <!-- niveau -->
                 <div class="col-md-6 ">
+
+                  <label class="form-label">sexe <span class="text-danger">*</span></label>
+
+                  <select class="form-control" id="InputSexeEnfant" formControlName="gender">
+                    <option selected disabled>Choisissez le sexe de l'enfant</option>
+                    <option value="M">M</option>
+                    <option value="F">F</option>
+                  </select>
+                </div>
+
+                <!-- niveau -->
+                <div class="col-md-6 ">
+                  <div *ngIf="activeButton === 'Parent'">
                   <label class="form-label">Niveau scolaire de l'enfant <span class="text-danger">*</span></label>
 
-                  <select class="form-control" id="exampleInputNiveauEnfant">
+                  <select class="form-control" id="InputNiveauEnfant" formControlName="lvl">
                     <option selected disabled>Choisissez le niveau scolaire de l'enfant</option>
                     <option value="1">1ère année primaire</option>
                     <option value="2">2ème année primaire</option>
                     <option value="3">3ème année primaire</option>
-                    <!-- Ajoutez les autres options selon vos besoins -->
                   </select>
+                  </div>
                 </div>
 
 
                 <!-- ortho  -->
                 <div class="col-md-6 ">
+                  <div *ngIf="activeButton === 'Parent'">
                   <label class="form-label">Nom de l'orthophoniste<span class="text-danger">*</span></label>
                   <input type="text" class="form-control" id="nomOrtho" placeholder="Nom de l'orthophoniste">
                 </div>
-
+                </div>
                 <!-- mdp -->
                 <div class="col-md-6 ">
-                  <label class="form-label">Mot de pass <span class="text-danger">*</span></label>
+                  <label class="form-label">Mot de passe <span class="text-danger">*</span></label>
 
                   <input type="password" class="form-control" placeholder="*********" id="inputPassword5" formControlName="password">
                 </div>
 
                 <!-- confirmer mdp -->
-                <div class="col-md-6 ">
-                  <label for="inputPassword6" class="form-label">Confirmer le mot de passe *</label>
-
-                  <input type="password" class="form-control" placeholder="*********" id="inputPassword6" >
+                <div class="col-md-6">
+                  <label class="form-label">Confirmer le mot de passe <span class="text-danger">*</span></label>
+                  <input type="password" class="form-control" placeholder="*********" formControlName="confirmPassword">
+                  <div *ngIf="addUserForm.hasError('passwordMismatch') && (addUserForm.dirty || addUserForm.touched)">
+                    <span class="text-danger">Les mots de passe ne correspondent pas</span>
+                  </div>
                 </div>
 
 

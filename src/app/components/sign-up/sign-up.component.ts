@@ -5,36 +5,89 @@ import {AuthService} from "../../services/auth.service";
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrl: './sign-up.component.css'
+  styleUrls: ['./sign-up.component.css']
 })
-export class SignUpComponent implements OnInit{
-
-  addUserForm : FormGroup = new FormGroup({
+export class SignUpComponent implements OnInit {
+  addUserForm: FormGroup = new FormGroup({
     username: new FormControl('', [Validators.required]),
+    last_name: new FormControl('', [Validators.required]),
+    first_name: new FormControl('', [Validators.required]),
+    cfn: new FormControl('',),
+    cln: new FormControl('',),
     email: new FormControl('', [Validators.required, Validators.email]),
+    gender: new FormControl('', Validators.required),
+    tel: new FormControl('', [Validators.required]),
+    lvl: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    role: new FormControl('',Validators.required)
+    confirmPassword: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    role: new FormControl('', Validators.required)
   });
 
-  constructor(private dataService: AuthService) { }
+  constructor(private dataService: AuthService) {}
+
   ngOnInit(): void {}
-  activeButton: string = ''; // Initialize active button variable
 
+  activeButton: string = '';
+  data: any;
 
-  onSubmit() : void {
-    console.log("form values : ", {
-      username: this.addUserForm.value.username,
-      email: this.addUserForm.value.email,
-      password: this.addUserForm.value.password,
-      role: this.addUserForm.value.role
-    });
-    let formData = {
-      username: this.addUserForm.value.username,
-      email: this.addUserForm.value.email,
-      password: this.addUserForm.value.password,
-      role:this.addUserForm.value.role
+  onSubmit(): void {
+    let formData = this.addUserForm.value;
+    let url: string;
+    switch (formData.role.toLowerCase()) {
+      case 'enseignant':
+        url = 'http://127.0.0.1:8000/api/teacher/register/';
+        this.data = {
+          "user": {
+            "username": formData.username,
+            "email": formData.email,
+            "password": formData.password,
+            "role": "parent",
+            "tel": formData.tel,
+            "gender": formData.gender,
+          },
+          "first_name": formData.first_name,
+          "last_name": formData.last_name,
+          "student": null
+        }
+
+        break;
+      case 'parent':
+        url = 'http://127.0.0.1:8000/api/parent/register/';
+        this.data = {
+          "user": {
+            "username": formData.username,
+            "email": formData.email,
+            "password": formData.password,
+            "role": "parent",
+            "gender": formData.gender,
+          },
+          "first_name": formData.first_name,
+          "last_name": formData.last_name,
+          "student": null
+        }
+        break;
+      case 'orthophoniste':
+        url = 'http://127.0.0.1:8000/api/ortho/register/';
+        this.data = {
+          "user": {
+            "username": formData.username,
+            "email": formData.email,
+            "password": formData.password,
+            "role": "orthophoniste",
+            "gender": formData.gender,
+          },
+          "first_name": formData.first_name,
+          "last_name": formData.last_name,
+          "student": null
+        }
+        break;
+      default:
+        // Default URL or error handling
+        console.error('Invalid role.');
+        return; // Exit the function
     }
-    this.dataService.createUser(formData).subscribe(
+
+    this.dataService.createUser(this.data, url).subscribe(
       (res) => {
         console.log(res);
         window.location.href = "/login";
@@ -45,12 +98,8 @@ export class SignUpComponent implements OnInit{
     )
   }
 
-
   toggleActive(buttonName: string): void {
     this.activeButton = buttonName === this.activeButton ? '' : buttonName;
     this.addUserForm.get('role')?.setValue(this.activeButton);
   }
 }
-
-
-

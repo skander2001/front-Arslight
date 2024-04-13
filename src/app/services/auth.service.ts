@@ -22,8 +22,8 @@ export class AuthService {
         return throwError(err);
       }));
   }
-  createUser(data: any) {
-    return this.http.post(`${this.API_URL}/register/`, data)
+  createUser(data: any,url:string) {
+    return this.http.post(url, data)
       .pipe(catchError((err) => {
         console.log(err);
         return throwError(err);
