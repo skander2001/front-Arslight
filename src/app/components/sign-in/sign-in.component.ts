@@ -37,7 +37,7 @@ export class SignInComponent implements OnInit {
         console.log(res);
         localStorage.setItem("user", JSON.stringify(res));
         this.isLoading = false;
-        window.location.href = "/";
+        window.location.href = "/home";
       },
       (err) => {
         this.isLoading = false;

@@ -41,7 +41,7 @@ export class SignUpComponent implements OnInit {
             "username": formData.username,
             "email": formData.email,
             "password": formData.password,
-            "role": "parent",
+            "role": "teacher",
             "tel": formData.tel,
             "gender": formData.gender,
           },
@@ -63,8 +63,20 @@ export class SignUpComponent implements OnInit {
           },
           "first_name": formData.first_name,
           "last_name": formData.last_name,
-          "student": null
-        }
+          "student": {
+            "user":{
+              username:"std_"+formData.username,
+              email: formData.email,
+              password:formData.password,
+              role:"student",
+              gender:formData.gender,
+            },
+            "child_first_name": formData.cfn,
+            "child_last_name": formData.cln,
+            "level": formData.lvl,
+            }
+          }
+
         break;
       case 'orthophoniste':
         url = 'http://127.0.0.1:8000/api/ortho/register/';
