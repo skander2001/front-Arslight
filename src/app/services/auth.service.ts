@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError } from 'rxjs/operators';
+import {catchError, tap} from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { User } from '../models/User';
 
@@ -28,6 +28,18 @@ export class AuthService {
         console.log(err);
         return throwError(err);
       }));
+  }
+  logout() {
+    return this.http.post(`${this.API_URL}/logout/`, {}) // Send a POST request
+      .pipe(
+        catchError((err) => {
+          console.log(err);
+          return throwError(err);
+        }),
+        tap(() => {
+          localStorage.removeItem('user'); // Remove item from local storage
+        })
+      );
   }
 
 
