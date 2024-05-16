@@ -1,3 +1,17 @@
+# ARSLIGHT 
+It's an e-learning platform, for dyslexic children .
+Most of the features integrated in this project are based on Deep learning models. 
+This project is divided into 2 sections : 
+
+front-Arslight (front-end) : we created the front-end using Angular . 
+
+back-Arslight (back-end) : we created the back-end using django .
+
+you can find them both on my profile. 
+
+Good Luck.
+
+
 # Front
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.2.
