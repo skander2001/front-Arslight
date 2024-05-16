@@ -1,0 +1,152 @@
+.container {
+  text-align: center;
+}
+body {
+  background-color: #fdfcfc; /* Couleur de fond gris clair */
+}
+/* test-game1.component.css */
+
+.instructions {
+  font-size: 25px;
+  font-weight: normal;
+  text-align: center;
+  margin-bottom: 20px;
+  color: black;
+  font-family: sans-serif;
+}
+
+.second-part {
+  font-size: 25px;
+  font-weight: normal;
+  text-align: center;
+  margin-bottom: 20px;
+  color: black;
+  font-family: sans-serif;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-container {
+  text-align: center; /* Centrer horizontalement */
+}
+
+.steam-image {
+  max-width: 100%;
+  height: auto;
+  display: block; /* Pour centrer verticalement */
+  margin: 0 auto; /* Pour centrer horizontalement */
+}
+
+/* test-game1.component.css */
+
+.container {
+  text-align: center; /* Centrer le contenu */
+}
+
+.image-container {
+  margin-top: 20px; /* Espacement entre les emojis */
+}
+
+.image-wrapper {
+  display: inline-block; /* Affichage en ligne pour les emojis */
+  width: 350px; /* Même largeur que les images */
+  height: 200px; /* Même hauteur que les images */
+  margin: 0 10px; /* Espacement entre les emojis */
+  border: 2px solid #ccc; /* Bordure autour des emojis */
+  border-radius: 10px; /* Coins arrondis pour les emojis */
+  cursor: pointer; /* Curseur de la souris change au survol */
+}
+
+
+
+.image {
+  width: 130px; /* Taille des emojis */
+  height: 170px;
+}
+
+.image-wrapper:hover {
+  border-color: #007bff; /* Couleur de la bordure lors du survol */
+}
+/* test-game1.component.css */
+.close-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+  color: #941212; /* Couleur de l'icône */
+}
+
+
+/* app.component.css */
+/* app.component.css */
+
+/* app.component.css */
+
+.star-icon {
+  position: absolute;
+  top: 10px; /* Ajustez la position verticale au besoin */
+  right: 10px; /* Ajustez la position horizontale au besoin */
+  text-align: center;
+}
+
+.close-icon {
+  position: absolute;
+  top: 10px; /* Ajustez la position verticale au besoin */
+  left: 10px; /* Ajustez la position horizontale au besoin */
+  text-align: center;
+}
+
+.counter {
+  font-size: 20px; /* Taille de police pour le compteur */
+  margin-left: 5px; /* Marge à gauche du compteur */
+}
+
+/* Styles pour l'icône d'étoile jaune */
+.yellow-star {
+  color: gold; /* Couleur jaune */
+}
+.response-message {
+  position: fixed;
+  top: 0;
+
+
+
+  width: 100%;
+  background-color: green;
+  color: white;
+  text-align: center;
+  padding: 5px 10px; /* Réduisez légèrement le padding */
+  z-index: 999;
+}
+
+.response-message p {
+  display: inline; /* Affiche le contenu sur la même ligne */
+}
+
+.response-message i {
+  margin-left: 5px; /* Ajoute un espace entre le texte et le symbole */
+}
+
+.speaker-icon {
+  position: fixed;
+  bottom: 10px; /* Ajustez la position verticale au besoin */
+  left: 4%; /* Ajustez la position horizontale pour centrer */
+  transform: translateX(-50%); /* Pour centrer horizontalement */
+  z-index: 999; /* Assurez-vous que le symbole est au-dessus de tout le reste */
+}
+
+
+
+/* Ajoutez ce style dans votre fichier CSS test-game2.component.css */
+
+.error-message {
+  color: rgb(170, 0, 0); /* Couleur du texte en rouge */
+  font-size: 18px; /* Taille de police de 18 pixels */
+  font-weight: bold; /* Texte en gras */
+  margin-top: 10px; /* Marge supérieure de 10 pixels pour l'espacement */
+}
+

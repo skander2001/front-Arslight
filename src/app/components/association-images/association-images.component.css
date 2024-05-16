@@ -1,0 +1,54 @@
+/* .container {
+    display: flex;
+  }
+
+  .images {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .image-container {
+    margin-bottom: 10px;
+  }
+  .alert {
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+  }
+  .texts span {
+    margin-bottom: 15px;
+    font-size: 45px;
+} */
+.text-container {
+  margin-bottom: 60px; /* ou la valeur de votre choix */
+}
+.text {
+  font-size: 30px; /* ou la taille de police de votre choix */
+  margin-right: 50px;
+
+}
+.image-container {
+  margin-left: 100px; /* Ajustez la valeur selon vos besoins */
+}
+.arrow {
+  font-size: 24px; /* Ajustez la taille de la flèche selon vos préférences */
+  font-weight: bold;
+  color:brown/* Mettez la flèche en gras */
+}
+.texts {
+  margin-top: 60px; /* Ajustez la valeur selon votre préférence */
+}
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}

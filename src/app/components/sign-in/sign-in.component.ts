@@ -37,7 +37,21 @@ export class SignInComponent implements OnInit {
         console.log(res);
         localStorage.setItem("user", JSON.stringify(res));
         this.isLoading = false;
-        window.location.href = "/home";
+        var userDataString = localStorage.getItem("user");
+        // @ts-ignore
+        var userData = JSON.parse(userDataString);
+        var userRole = userData.role;
+
+        if(userRole == "Student") {
+          window.location.href = "/question/1"
+        }else {
+          window.location.href = "http://127.0.0.1:5500/instructor-earning.html"
+        }
+
+
+
+
+
       },
       (err) => {
         this.isLoading = false;

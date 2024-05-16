@@ -1,0 +1,69 @@
+.question-container {
+  text-align: center;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.option-button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.option-button:hover {
+  background-color: #45a049;
+}
+.question-container ul {
+  list-style-type: none;
+}
+.question-container h2 {
+  font-weight: normal;
+}
+.options {
+  list-style-type: none;
+  padding: 0;
+  text-align: center; /* Alignement horizontal */
+  display: flex; /* Alignement des boutons côte à côte */
+  justify-content: center; /* Centrer les boutons horizontalement */
+  flex-wrap: wrap; /* Permettre le retour à la ligne des boutons si nécessaire */
+}
+
+
+.option-button {
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.option-button:hover {
+  background-color: #45a049;
+}
+
+.option-button.red {
+  background-color: #dd5c3f; /* Rouge */
+}
+
+.option-button.orange {
+  background-color: #e2a32d; /* Orange */
+}
+
+.option-button.green {
+  background-color: #4CAF50; /* Vert */
+}

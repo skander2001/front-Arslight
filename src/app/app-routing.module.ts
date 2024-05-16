@@ -15,6 +15,23 @@ import {NaturalWorldComponent} from "./components/natural-world/natural-world.co
 import {TestGame4Component} from "./components/test-game4/test-game4.component";
 import {TestGame5Component} from "./components/test-game5/test-game5.component";
 import {TestGame6Component} from "./components/test-game6/test-game6.component";
+import {TypingGameComponent} from "./components/typing-game/typing-game.component";
+import {TtsComponent} from "./components/tts/tts.component";
+import {ReadingComponent} from "./components/reading/reading.component";
+import {WrittingComponent} from "./components/writting/writting.component";
+import {ToolsComponent} from "./components/tools/tools.component";
+import {TtiComponent} from "./components/tti/tti.component";
+import {OcrComponent} from "./components/ocr/ocr.component";
+import {DashboardComponent} from "./components/dashboard/dashboard.component";
+import {SchoolCoursesComponent} from "./components/school-courses/school-courses.component";
+import {Course1Component} from "./components/course1/course1.component";
+import {Course2Component} from "./components/course2/course2.component";
+import {Txt1Component} from "./components/txt1/txt1.component";
+import {Txt2Component} from "./components/txt2/txt2.component";
+import {AssociationImagesComponent} from "./components/association-images/association-images.component";
+import {QuestionComponent} from "./components/quiz/question/question.component";
+import {ResultComponent} from "./components/quiz/result/result.component";
+import {SttComponent} from "./components/stt/stt.component";
 
 
 
@@ -34,7 +51,26 @@ const routes: Routes = [
   {path:'test-game4', component:TestGame4Component},
   {path:'test-game5', component:TestGame5Component},
   {path:'test-game6',component:TestGame6Component},
+  {path:'games/typing-game',component:TypingGameComponent},
+  {path:'writting',component:WrittingComponent},
+  {path:'reading',component:ReadingComponent},
+  {path:'tts',component:TtsComponent},
+  {path:'tools',component:ToolsComponent},
+  {path:'tti',component:TtiComponent},
+  {path:'ocr',component:OcrComponent},
+  {path:'dashboard',component:DashboardComponent},
+  {path:'school-courses',component:SchoolCoursesComponent},
+  {path:'course1',component:Course1Component},
+  {path:'course2',component:Course2Component},
+  {path:'txt1',component:Txt1Component},
+  {path:'txt2',component:Txt2Component},
+  {path:'associationImages',component:AssociationImagesComponent},
+  { path: 'question/:id', component: QuestionComponent },
+  {path:'result', component:ResultComponent},
+  {path:'stt', component:SttComponent},
+
   {path:'**',component:Page404Component},
+
 
 
 

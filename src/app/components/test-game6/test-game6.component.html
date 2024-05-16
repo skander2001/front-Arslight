@@ -1,0 +1,49 @@
+<!-- test-game2.component.html -->
+<body>
+<!-- Response Message -->
+<div *ngIf="showResponseMessage" class="response-message">
+  <p>Correct answer! <span style="font-size: 20px;">👍</span></p>
+</div>
+
+<!-- Star Icon with Counter -->
+<div class="star-icon">
+  <i class="fas fa-star fa-3x yellow-star"></i>
+  <span class="counter">{{ progressCounter }}</span>
+</div>
+
+<!-- Close Icon -->
+<div class="close-icon">
+  <i class="fas fa-times-circle fa-3x" (click)="closePage()"></i>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+  <p class="instructions">{{ instructions }}</p>
+
+  <br>
+  <div class="image-container">
+    <div *ngFor="let option of options; let i = index" class="image-wrapper" (click)="selectOption(option)">
+      <p class="dog-name">{{ dogNames[i] }}</p> <!-- Afficher le nom de chien correspondant -->
+
+      <img [src]="option" class="image" alt="Dog">
+    </div>
+  </div>
+
+  <p class="error-message">{{ feedbackMessage }}</p>
+</div>
+
+<div class="speaker-icon">
+  <img src="assets/images/games/speaker.png" alt="Haut-parleur" width="70" height="70">
+</div>
+
+<!-- Popup de félicitations -->
+<div *ngIf="showCongratulations" class="congrats-popup">
+  <p>Congratulations, you have terminated this section!</p>
+</div>
+
+</body>

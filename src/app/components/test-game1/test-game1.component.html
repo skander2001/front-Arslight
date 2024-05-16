@@ -1,0 +1,48 @@
+<!-- app.component.html -->
+<body>
+<!-- Message de réponse -->
+<div *ngIf="showResponseMessage" class="response-message">
+  <p>Correct answer! <span style="font-size: 20px;">👍</span></p>
+
+</div>
+
+<br>
+
+<!-- Star Icon with Counter -->
+<div class="star-icon">
+  <i class="fas fa-star fa-3x yellow-star"></i> <!-- Ajoutez une classe pour la couleur jaune -->      <span class="counter">{{ progressCounter }}</span>
+</div>
+
+<!-- Close Icon -->
+<div class="close-icon">
+  <i class="fas fa-times-circle fa-3x" (click)="closePage()"></i>
+</div>
+
+<br>
+
+<br>
+
+<div class="container">
+  <p class="instructions">{{ instructions }}</p>
+  <p class="second-part">Tap on any answer to start!</p>
+
+
+
+  <div class="image-container">
+    <img [src]="imageUrl" alt="Steam and dog" class="steam-image">
+  </div>
+
+  <div class="emoji-container">
+    <div *ngFor="let option of options" class="emoji-wrapper" (click)="selectOption(option)">
+      <img [src]="option" class="emoji" alt="Emoji">
+    </div>
+  </div>
+
+  <p>{{ feedbackMessage }}</p>
+</div>
+
+
+<div class="speaker-icon">
+  <img src="assets/images/games/speaker.png" alt="Haut-parleur" width="70" height="70">      </div>
+
+</body>
